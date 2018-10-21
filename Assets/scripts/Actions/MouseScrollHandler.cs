@@ -3,8 +3,8 @@ using Handlers;
 using UnityEngine;
 
 namespace Actions {
-    public class ActionHandler : Handler<NonAction> {
-        private readonly List<NonAction> actions = new List<NonAction>();
+    internal class MouseScrollHandler : Handler<ScrollAction> {
+        private readonly List<ScrollAction> actions = new List<ScrollAction>();
 
         public void SetupComponents(GameObject obj) {
             foreach (var action in actions) {
@@ -12,14 +12,14 @@ namespace Actions {
             }
         }
 
-        public void DoAction() {
-            foreach (var action in actions) {
-                action.Execute();
-            }
+        public void AddAction(ScrollAction action) {
+            actions.Add(action);
         }
 
-        public void AddAction(NonAction action) {
-            actions.Add(action);
+        public void DoAction() {
+            foreach (var action in actions) {
+                action.Execute(Input.GetAxis("Mouse ScrollWheel"));
+            }
         }
     }
 }

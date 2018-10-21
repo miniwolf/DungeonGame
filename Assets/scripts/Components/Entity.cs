@@ -1,6 +1,7 @@
 using System;
+using Actions;
 
-namespace DefaultNamespace {
+namespace Components {
     public interface Entity {
         String Tag { get; }
         void SetupComponents();

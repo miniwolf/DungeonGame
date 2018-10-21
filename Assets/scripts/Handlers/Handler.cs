@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 namespace Handlers {
@@ -10,14 +9,16 @@ namespace Handlers {
         void SetupComponents(GameObject obj);
 
         /// <summary>
-        /// Adds an action to the handler. This action will be execute in order by the internal handler
-        /// </summary>
-        /// <param name="action">Action to be added.</param>
-        void AddAction(Action action);
-
-        /// <summary>
         /// Execute the actions in the container in order they have been added
         /// </summary>
         void DoAction();
+    }
+
+    public interface Handler<in A> : Handler {
+        /// <summary>
+        /// Adds an action to the handler. This action will be execute in order by the internal handler
+        /// </summary>
+        /// <param name="action">Action to be added.</param>
+        void AddAction(A action); // TODO: Only implementations are used, good point.
     }
 }

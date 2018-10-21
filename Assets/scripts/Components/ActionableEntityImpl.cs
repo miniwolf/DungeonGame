@@ -1,5 +1,6 @@
 using System.Collections.Generic;
-using DefaultNamespace;
+using Actions;
+using Factories;
 using Handlers;
 using UnityEngine;
 
@@ -11,9 +12,8 @@ namespace Components {
             Registry.Register(this);
         }
 
-        public void AddAction(T actionName, Handler action) {
-            List<Handler> handlers;
-            actions.TryGetValue(actionName, out handlers);
+        public void AddAction<A>(T actionName, Handler<A> action) where A : Action {
+            actions.TryGetValue(actionName, out var handlers);
             if (handlers == null) {
                 handlers = new List<Handler>();
                 actions.Add(actionName, handlers);

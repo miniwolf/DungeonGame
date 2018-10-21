@@ -1,7 +1,7 @@
 using Actions;
 using Actions.movement;
+using Character;
 using Components;
-using DefaultNamespace;
 using Handlers;
 using UnityEngine;
 
@@ -11,7 +11,8 @@ namespace Factories {
         private readonly MoveComponent moveComponent;
         private readonly Camera camera;
 
-        public CharacterFactory(Actionable<ControllableActions> actionable, MoveComponent moveComponent) {
+        public CharacterFactory(Actionable<ControllableActions> actionable,
+            MoveComponent moveComponent) {
             this.actionable = actionable;
             this.moveComponent = moveComponent;
             camera = Camera.allCameras[0]; // Why doesn't Camera.main work?
@@ -22,15 +23,15 @@ namespace Factories {
             actionable.AddAction(ControllableActions.Move, CreateMovement());
         }
 
-        private Handler CreateMovement() {
+        private Handler<NonAction> CreateMovement() {
             var handler = new ActionHandler();
             handler.AddAction(new MoveCharacterAction(moveComponent));
             return handler;
         }
 
-        private Handler CreateClickMoveAction() {
-            var handler = new MouseMoveHandler(camera);
-            handler.AddMoveAction(new SetDestination(moveComponent));
+        private Handler<MoveAction> CreateClickMoveAction() {
+            var handler = new MouseClickHandler(camera);
+            handler.AddAction(new SetDestination(moveComponent));
             return handler;
         }
     }

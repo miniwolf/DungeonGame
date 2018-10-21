@@ -3,7 +3,7 @@ using Handlers;
 using UnityEngine;
 
 namespace Actions.movement {
-    public class MoveCharacterAction : Action {
+    public class MoveCharacterAction : NonAction {
         private readonly MoveComponent moveComponent;
         private CharacterController characterController;
         private GameObject gameObject;

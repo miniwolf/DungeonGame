@@ -1,7 +1,7 @@
 using Components;
 using UnityEngine;
 
-namespace DefaultNamespace {
+namespace Character {
     public class Character : ActionableEntityImpl<ControllableActions>, MoveComponent {
 
         public override string Tag => "Character";
@@ -12,5 +12,9 @@ namespace DefaultNamespace {
         private void FixedUpdate() {
             ExecuteAction(ControllableActions.Move);
         }
+    }
+
+    public enum ControllableActions {
+        Move
     }
 }

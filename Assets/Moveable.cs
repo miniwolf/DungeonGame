@@ -93,21 +93,8 @@ public class PlayerCharacterController : MonoBehaviour {
                 Time.deltaTime * rotationSpeed);
         }
 
-        //** Note, go into Edit -> Project settings -> Input and ADD 'Jump" ass 'space" **
-        //check if player is on the ground
-        if (player.isGrounded == true) {
-            //set jump times to 0
-            jumpTimes = 0;
-        }
-
-        if (jumpTimes < 2) {
-            //Jump Input
-            if (Input.GetButtonDown("Jump")) {
-                verticalVelocity += jumpDist;
-
-                //set jumptimes +1
-                jumpTimes += 1;
-            }
+        if (Input.GetButtonDown("Jump") && player.isGrounded) {
+            verticalVelocity = jumpDist;
         }
     }
 
