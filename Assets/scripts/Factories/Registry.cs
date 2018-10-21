@@ -30,6 +30,7 @@ namespace Factories {
                 case "PlayerCamera":
                     new PlayerCameraFactory(
                         entity.Actionable<CameraActions>(),
+                        (ZoomSettings) entity,
                         mainCamera).Build();
                     break;
             }

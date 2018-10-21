@@ -1,8 +1,8 @@
 using System.Collections.Generic;
-using Handlers;
+using Actions;
 using UnityEngine;
 
-namespace Actions {
+namespace Handlers {
     public class ActionHandler : Handler<NonAction> {
         private readonly List<NonAction> actions = new List<NonAction>();
 

@@ -6,7 +6,11 @@ namespace Character {
 
         public override string Tag => "Character";
 
-        public float MoveSpeed { get; set; } = 1f;
+        public float moveSpeed = 1f;
+        public float MoveSpeed {
+            get => moveSpeed;
+            set => moveSpeed = value;
+        }
         public Vector3 Destination { get; set; }
 
         private void FixedUpdate() {

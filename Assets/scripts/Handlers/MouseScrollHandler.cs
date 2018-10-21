@@ -1,8 +1,8 @@
 using System.Collections.Generic;
-using Handlers;
+using Actions;
 using UnityEngine;
 
-namespace Actions {
+namespace Handlers {
     internal class MouseScrollHandler : Handler<ScrollAction> {
         private readonly List<ScrollAction> actions = new List<ScrollAction>();
 
