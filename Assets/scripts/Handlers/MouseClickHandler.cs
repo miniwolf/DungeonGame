@@ -7,7 +7,7 @@ namespace Handlers {
         private readonly List<MoveAction> actions = new List<MoveAction>();
         private readonly Camera camera;
 
-        private LayerMask layerMask;// = 1 << LayerConstants.GroundLayer;
+        private LayerMask layerMask; // = 1 << LayerConstants.GroundLayer;
         private RaycastHit hit;
         private Ray cameraToGround;
 
@@ -16,7 +16,7 @@ namespace Handlers {
         }
 
         public void SetupComponents(GameObject obj) {
-            foreach ( var action in actions ) {
+            foreach (var action in actions) {
                 action.Setup(obj);
             }
         }

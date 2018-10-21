@@ -19,13 +19,21 @@ namespace Factories {
         }
 
         public void Build() {
-            actionable.AddAction(ControllableActions.Move, CreateClickMoveAction());
-            actionable.AddAction(ControllableActions.Move, CreateMovement());
+            actionable.AddAction(ControllableActions.MouseMove, CreateClickMoveAction());
+            actionable.AddAction(ControllableActions.MouseMove, CreateMovement());
+
+            actionable.AddAction(ControllableActions.KeyboardMove, CreateKeyboardMoveAction());
+        }
+
+        private Handler<AxisAction> CreateKeyboardMoveAction() {
+            var handler = new AxisHandler();
+            handler.AddAction(new MoveCharacterAxisAction(moveComponent));
+            return handler;
         }
 
         private Handler<NonAction> CreateMovement() {
             var handler = new ActionHandler();
-            handler.AddAction(new MoveCharacterAction(moveComponent));
+            handler.AddAction(new MoveCharacterNonAction(moveComponent));
             return handler;
         }
 

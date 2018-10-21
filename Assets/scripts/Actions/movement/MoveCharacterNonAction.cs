@@ -3,12 +3,12 @@ using Handlers;
 using UnityEngine;
 
 namespace Actions.movement {
-    public class MoveCharacterAction : NonAction {
+    public class MoveCharacterNonAction : NonAction {
         private readonly MoveComponent moveComponent;
         private CharacterController characterController;
         private GameObject gameObject;
 
-        public MoveCharacterAction(MoveComponent moveComponent) {
+        public MoveCharacterNonAction(MoveComponent moveComponent) {
             this.moveComponent = moveComponent;
         }
 

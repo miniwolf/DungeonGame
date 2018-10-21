@@ -6,6 +6,7 @@ namespace Character {
 
         public override string Tag => "Character";
 
+        public bool toggleMove;
         public float moveSpeed = 1f;
         public float MoveSpeed {
             get => moveSpeed;
@@ -14,11 +15,15 @@ namespace Character {
         public Vector3 Destination { get; set; }
 
         private void FixedUpdate() {
-            ExecuteAction(ControllableActions.Move);
+            if (toggleMove) {
+                ExecuteAction(ControllableActions.KeyboardMove);
+            } else {
+                ExecuteAction(ControllableActions.MouseMove);
+            }
         }
     }
 
     public enum ControllableActions {
-        Move
+        KeyboardMove, MouseMove
     }
 }

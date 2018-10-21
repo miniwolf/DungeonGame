@@ -19,10 +19,7 @@ namespace Actions {
     }
 
     public interface ScrollAction : Action {
-        /// <summary>
-        /// Will pass the position on to the action to affect something on the given position.
-        /// </summary>
-        /// <param name="deltaZoomLevel">Level zoomed already</param>
+        /// <param name="deltaZoomLevel">Delta on the zoom level</param>
         void Execute(float deltaZoomLevel);
     }
 
@@ -32,5 +29,14 @@ namespace Actions {
         /// </summary>
         /// <param name="pos">Position clicked.</param>
         void Execute(Vector3 pos);
+    }
+
+    public interface AxisAction : Action {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="vertical"></param>
+        /// <param name="horizontal"></param>
+        void Execute(float vertical, float horizontal);
     }
 }
