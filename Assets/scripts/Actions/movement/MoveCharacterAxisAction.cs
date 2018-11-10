@@ -19,7 +19,7 @@ namespace Actions.movement {
             var moveFB = vertical * moveComponent.MoveSpeed;
             var moveLR = horizontal * moveComponent.MoveSpeed;
 
-            var offset = new Vector3(moveFB, 0, moveLR);
+            var offset = new Vector3(moveFB, 0, -moveLR);
             characterController.Move(offset * Time.deltaTime);
         }
     }

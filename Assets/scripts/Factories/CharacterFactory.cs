@@ -38,8 +38,8 @@ namespace Factories {
         }
 
         private Handler<MoveAction> CreateClickMoveAction() {
-            var handler = new MouseClickHandler(camera);
-            handler.AddAction(new SetDestination(moveComponent));
+            var handler = new MouseRaycastHandler(camera);
+            handler.AddAction(new SetDestinationOnMoveComponent(moveComponent));
             return handler;
         }
     }

@@ -137,12 +137,13 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 170076733}
   m_Enabled: 1
-  serializedVersion: 8
+  serializedVersion: 9
   m_Type: 1
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
+  m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
     m_Type: 2
@@ -365,9 +366,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 534669902}
   m_Enabled: 1
   m_EditorHideFlags: 0
+  m_GeneratorAsset: {fileID: 0}
   m_Script: {fileID: 11500000, guid: 3c0f3f3abc820c241862ab1b22f2bbf5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  zoomSpeed: 2
+  zoomMin: 2
+  zoomMax: 10
+  zoomValue: 0
+  target: {fileID: 1541447875}
+  offset: {x: 0, y: 0, z: 0}
 --- !u!1 &759869057
 GameObject:
   m_ObjectHideFlags: 0
@@ -394,6 +402,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 759869057}
   m_Enabled: 1
   m_EditorHideFlags: 0
+  m_GeneratorAsset: {fileID: 0}
   m_Script: {fileID: 11500000, guid: ad7b0c641d3d44c49dcd89ff74df6e5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
@@ -531,6 +540,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1541447871}
   m_Enabled: 1
   m_EditorHideFlags: 0
+  m_GeneratorAsset: {fileID: 0}
   m_Script: {fileID: 11500000, guid: 624496ae6dd2472db523bb432d7494d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  toggleMove: 1
+  moveSpeed: 1
