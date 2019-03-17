@@ -3,14 +3,15 @@ using UnityEngine;
 
 namespace Actions
 {
-    public class RotateAroundTarget : MousePositionAction
+    public class RotateAroundWithTarget : MousePositionAction
     {
         private readonly ChaseCameraSettings chaseCameraSettings;
         private Vector3 rotation;
+        private Vector3 targetRotation;
         private int mouseButton = 1; // Right button
         private Transform gameObjectTransform;
 
-        public RotateAroundTarget(ChaseCameraSettings chaseCameraSettings)
+        public RotateAroundWithTarget(ChaseCameraSettings chaseCameraSettings)
         {
             this.chaseCameraSettings = chaseCameraSettings;
         }
@@ -30,8 +31,15 @@ namespace Actions
 
             rotation.y += mouseX * chaseCameraSettings.RotationSpeed;
             rotation.x -= mouseY * chaseCameraSettings.RotationSpeed;
-            rotation.x = Mathf.Clamp(rotation.x, chaseCameraSettings.XMinAngle, chaseCameraSettings.XMaxAngle);
+            rotation.x = Mathf.Clamp(rotation.x,
+                chaseCameraSettings.XMinAngle,
+                chaseCameraSettings.XMaxAngle);
+
             gameObjectTransform.rotation = Quaternion.Euler(rotation.x, rotation.y, 0);
+
+            targetRotation.y = rotation.y;
+            chaseCameraSettings.Target.transform.rotation =
+                Quaternion.Euler(targetRotation.x, targetRotation.y, 0);
         }
     }
 }

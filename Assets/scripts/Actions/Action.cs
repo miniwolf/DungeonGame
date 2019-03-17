@@ -52,4 +52,13 @@ namespace Actions
         /// <param name="horizontal"></param>
         void Execute(float vertical, float horizontal);
     }
+
+    public interface TriggerAction : Action
+    {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="other"></param>
+        void Execute(Collider other);
+    }
 }

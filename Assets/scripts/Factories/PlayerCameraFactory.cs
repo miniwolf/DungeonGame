@@ -31,7 +31,7 @@ namespace Factories
         private Handler<MousePositionAction> RotateAround()
         {
             var handler = new MousePositionHandler();
-            handler.AddAction(new RotateAroundTarget(chaseCameraSettings));
+            handler.AddAction(new RotateAroundWithTarget(chaseCameraSettings));
             return handler;
         }
 
