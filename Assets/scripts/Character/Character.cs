@@ -1,29 +1,43 @@
 using Components;
 using UnityEngine;
 
-namespace Character {
-    public class Character : ActionableEntityImpl<ControllableActions>, MoveComponent {
-
+namespace Character
+{
+    public class Character : ActionableEntityImpl<ControllableActions>, MoveComponent
+    {
         public override string Tag => "Character";
 
         public bool toggleMove;
         public float moveSpeed = 1f;
-        public float MoveSpeed {
+
+        public float MoveSpeed
+        {
             get => moveSpeed;
             set => moveSpeed = value;
         }
+
         public Vector3 Destination { get; set; }
 
-        private void FixedUpdate() {
-            if (toggleMove) {
+        private void FixedUpdate()
+        {
+            if (toggleMove)
+            {
                 ExecuteAction(ControllableActions.KeyboardMove);
-            } else {
+            } else
+            {
                 ExecuteAction(ControllableActions.MouseMove);
             }
+
+            ExecuteAction(ControllableActions.Target);
+            ExecuteAction(ControllableActions.Attack);
         }
     }
 
-    public enum ControllableActions {
-        KeyboardMove, MouseMove
+    public enum ControllableActions
+    {
+        KeyboardMove,
+        MouseMove,
+        Target,
+        Attack,
     }
 }
